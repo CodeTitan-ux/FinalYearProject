@@ -1,0 +1,101 @@
+Project: AI Mock Interview (React + TypeScript + Vite)
+
+This project is an AI-powered mock interview application built with React, Vite, TypeScript, Tailwind CSS, Clerk (for Authentication), Firebase (for Backend and Database), and Google Generative AI (Gemini).
+
+Below are the complete instructions to set up, install, and run this project locally on your Windows 11 machine using Visual Studio Code (VS Code).
+
+=====================================================
+1. Prerequisites (Software Requirements)
+=====================================================
+Before you begin, ensure you have the following installed on your machine:
+- Node.js (v18 or higher): Download and install from https://nodejs.org/
+- Git (Optional but recommended): Download from https://git-scm.com/
+- Visual Studio Code: Download from https://code.visualstudio.com/
+- pnpm (Package Manager): Open Command Prompt or PowerShell as Administrator and run:
+  > npm install -g pnpm
+
+=====================================================
+2. Opening the Project in VS Code
+=====================================================
+1. Launch Visual Studio Code.
+2. Go to "File" > "Open Folder..." and select the project directory:
+   `d:\ai-mock-interview`
+3. Once opened, you can view the project files in the Explorer pane on the left.
+4. Open the integrated terminal in VS Code by pressing `` Ctrl + ` `` or going to "Terminal" > "New Terminal".
+
+=====================================================
+3. Setting Up Environment Variables
+=====================================================
+The project requires environment variables to connect to Clerk, Firebase, EmailJS, and Gemini. 
+
+1. Ensure the `.env.local` file is present in the root of the project (`d:\ai-mock-interview\.env.local`).
+2. The file should look like this (you can update the values with your actual API keys if needed):
+
+# Clerk Auth
+VITE_CLERK_PUBLISHABLE_KEY=pk_test_... (your publishable key)
+CLERK_SECRET_KEY=sk_test_... (your secret key)
+
+# Firebase
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+
+# Gemini (Google Generative AI)
+VITE_GEMINI_API_KEY=your_gemini_api_key
+
+# EmailJS
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+
+# Clerk Webhook (For Syncing Clerk Users with Firebase)
+CLERK_WEBHOOK_SECRET=whsec_... (your webhook secret)
+
+=====================================================
+4. Installing Dependencies
+=====================================================
+Since this project uses `pnpm`, we will use it to install the required packages.
+
+1. In the VS Code integrated terminal (ensure you are in the root directory `d:\ai-mock-interview`), run:
+   > pnpm install
+
+2. (Optional: Firebase Functions setup) 
+   If you plan to test or run the backend Firebase Functions locally, you also need to install dependencies for the `functions` directory:
+   > cd functions
+   > pnpm install
+   > cd .. 
+
+=====================================================
+5. Running the Project Locally
+=====================================================
+1. To start the local development server, run the following command in the VS Code terminal (from the project root):
+   > pnpm run dev
+
+2. The Vite development server will start, and you should see output similar to this:
+   VITE vX.X.X  ready in X ms
+   ➜  Local:   http://localhost:5173/
+
+3. Hold `Ctrl` and click the link (`http://localhost:5173/`) to open the running application in your default web browser.
+
+=====================================================
+6. Building for Production (Optional)
+=====================================================
+When you are ready to prepare the app for deployment, you can build the production assets:
+1. Run the build command:
+   > pnpm run build
+2. This will compile TypeScript (`tsc -b`) and build the Vite chunks into the `dist/` directory.
+
+You can preview the production build locally with:
+> pnpm run preview
+
+=====================================================
+Additional Helpful Commands
+=====================================================
+- Linting: To find and fix problems in your code, run:
+  > pnpm run lint
+- Firebase Deploy (To deploy functions or hosting if logged in):
+  > firebase deploy --only functions
+  > firebase deploy --only hosting
