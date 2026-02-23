@@ -11,6 +11,10 @@ environmentVariables:
     secret: VITE_FIREBASE_API_KEY
   - variable: VITE_EMAILJS_PUBLIC_KEY
     secret: VITE_EMAILJS_PUBLIC_KEY
+  - variable: VITE_EMAILJS_SERVICE_ID
+    secret: VITE_EMAILJS_SERVICE_ID
+  - variable: VITE_EMAILJS_TEMPLATE_ID
+    secret: VITE_EMAILJS_TEMPLATE_ID
   - variable: VITE_FIREBASE_AUTH_DOMAIN
     value: ai-mock-interview-projec-ffb10.firebaseapp.com
   - variable: VITE_FIREBASE_PROJECT_ID
