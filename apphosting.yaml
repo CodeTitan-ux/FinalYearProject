@@ -3,10 +3,6 @@ buildConfig:
   outputDirectory: dist
 
 environmentVariables:
-  - variable: VITE_CLERK_PUBLISHABLE_KEY
-    value: pk_test_aW50ZW50LWdvYmJsZXItNDQuY2xlcmsuYWNjb3VudHMuZGV2JA
-  - variable: VITE_FIREBASE_API_KEY
-    value: AIzaSyAfRm5CqPhgXhU8CmmlE2YM1WwxSTDEzuo
   - variable: VITE_FIREBASE_AUTH_DOMAIN
     value: ai-mock-interview-projec-ffb10.firebaseapp.com
   - variable: VITE_FIREBASE_PROJECT_ID
@@ -17,11 +13,6 @@ environmentVariables:
     value: "406777846954"
   - variable: VITE_FIREBASE_APP_ID
     value: 1:406777846954:web:a8ab0d3a746a40239b04d3
-  - variable: VITE_GEMINI_API_KEY
-    value: AIzaSyAd-iaT9gceglWUdqRv28IP2z0sMigtU2E
-  - variable: VITE_EMAILJS_SERVICE_ID
-    value: service_baoskyf
-  - variable: VITE_EMAILJS_TEMPLATE_ID
-    value: template_sejztjb
-  - variable: VITE_EMAILJS_PUBLIC_KEY
-    value: Uuj8O6rNKweMPD60Q
+
+# DO NOT ADD SECRETS HERE.
+# Use 'firebase apphosting:secrets:set' to add sensitive keys.
