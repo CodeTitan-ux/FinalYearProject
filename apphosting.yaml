@@ -1,0 +1,4 @@
+# apphosting.yaml
+buildConfig:
+  buildScript: pnpm run build
+  outputDirectory: dist
