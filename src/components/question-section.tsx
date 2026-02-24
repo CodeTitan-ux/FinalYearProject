@@ -189,7 +189,7 @@ export const QuestionSection = ({
                    textToRead = translationCache.current[cacheKey];
                 } else {
                    // Wait for Gemini API
-                   const prompt = `Translate the following interview question into ${targetLang}. Return ONLY the translated string, with no additional formatting or markdown: "${qst}"`;
+                   const prompt = `Translate the following interview question into ${targetLang}. You MUST use the native script (e.g., Devanagari for Hindi/Marathi) and NOT English/Roman characters. Return ONLY the translated string, with no additional formatting, markdown, or English conversational text: "${qst}"`;
                    const translationText = await generateAiContent({ prompt });
                    if (translationText) {
                        textToRead = translationText.trim().replace(/['"`]/g, '');
@@ -206,7 +206,15 @@ export const QuestionSection = ({
 
         const speech = new SpeechSynthesisUtterance(textToRead);
         speech.lang = preferredLanguage;
-        speech.rate = 1.2; // Speed up playback by 20%
+        
+        // Explicitly set the voice to avoid fallback to local English dialects (e.g. en-IN)
+        const voices = window.speechSynthesis.getVoices();
+        const voice = voices.find(v => v.lang === preferredLanguage) || voices.find(v => v.lang.startsWith(preferredLanguage.split('-')[0]));
+        if (voice) {
+          speech.voice = voice;
+        }
+
+        speech.rate = 1.0; // Keep normal rate for translated text or it sounds unnatural
         window.speechSynthesis.speak(speech);
         setIsPlaying(true);
         setCurrentSpeech(speech);
