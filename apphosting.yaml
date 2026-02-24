@@ -2,7 +2,7 @@ buildConfig:
   buildScript: pnpm run build
   outputDirectory: dist
 
-environmentVariables:
+env:
   - variable: VITE_CLERK_PUBLISHABLE_KEY
     secret: VITE_CLERK_PUBLISHABLE_KEY
   - variable: VITE_GEMINI_API_KEY
